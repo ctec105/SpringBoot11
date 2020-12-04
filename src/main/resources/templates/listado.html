@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Listado</title>
+</head>
+<body>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Apellidos</th>
+				<th>Teléfono</th>
+				<th>Correo</th>
+			</tr>
+		</thead>
+		<tbody th:each="usuario : ${usuarios}">
+			<tr>
+				<th th:text="${usuario.id}"></th>
+				<th th:text="${usuario.nombre}"></th>
+				<th th:text="${usuario.apellidos}"></th>
+				<th th:text="${usuario.telefono}"></th>
+				<th th:text="${usuario.correo}"></th>
+			</tr>
+		</tbody>
+	</table>
+	
+	<form action="#" th:action="@{/usuario/addUsuario}" th:object="${usuario}" method="post">
+		<input type="text" placeholder="Nombre" th:field="${usuario.nombre}" /><br/>
+		<input type="text" placeholder="Apellidos" th:field="${usuario.apellidos}" /><br/>
+		<input type="text" placeholder="Teléfono" th:field="${usuario.telefono}" /><br/>
+		<input type="text" placeholder="Correo" th:field="${usuario.correo}" /><br/>
+		<input type="submit" value="Enviar"/>
+	</form>
+	
+	
+</body>
+</html>
